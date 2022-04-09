@@ -5,5 +5,5 @@ ${username}                   priya12330@yahoo.com
 ${password}                   indus@1988 
 ${sender email address}       dhari.nandakumar@gmail.com
 ${subject}                    Resume
-${email_body_file}            ../my_automation_project/email_body.txt
+${email_body_file}            email_body.txt
 ${file attach}                harale_madhu.docx
