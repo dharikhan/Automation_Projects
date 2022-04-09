@@ -1,2 +1,2 @@
-Selenium2Library
+robotframework-selenium2library
 selenium
