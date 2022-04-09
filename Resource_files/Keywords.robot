@@ -35,8 +35,7 @@ def sum(a,b):
 
 
 
-Input username
-    [Arguments]      ${}
+
     
 
 
