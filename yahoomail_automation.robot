@@ -3,7 +3,7 @@ Library             Selenium2Library
 Library             OperatingSystem
 Resource            Resource_files/Testbed.robot
 Resource            Resource_files/Keywords.robot
-Resource              Resource_files/network.py
+Library             Resource_files/network.py
 
 
 
