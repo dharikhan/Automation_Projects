@@ -1,6 +1,6 @@
 *** Keywords ***
 Login yahoo mail
-    Open browser    ${url}   chromedriver.exe 
+    Open browser    ${url}   ${browser}
     Sleep   2
     Maximize Browser Window 
     Input Text  //*[@id="login-username"]   ${username} 
