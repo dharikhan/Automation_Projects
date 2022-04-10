@@ -1,8 +1,8 @@
 *** Keywords ***
 Login yahoo mail
-    Sleep      50
+    Sleep      5
     Open browser    ${url}   ${browser}
-    Sleep       50
+    Sleep       5
     Maximize Browser Window 
     Input Text  //*[@id="login-username"]   ${username} 
     Click Element   //*[@id="login-signin"] 
