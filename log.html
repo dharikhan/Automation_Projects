@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 4.0.2 (Python 3.7.10 on linux)" name="Generator">
+<meta content="Robot Framework 4.1.3 (Python 3.10.0 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all" type="text/css">
 /* Generic and misc styles */
@@ -588,10 +588,10 @@ function drawCallback(element, childElement, childrenNames) {
     }
 }
 function expandSuite(suite) {
-    if (suite.status == "PASS")
-        expandElement(suite);
-    else
+    if (suite.status == "FAIL")
         expandFailed(suite);
+    else
+        expandElement(suite);
 }
 function expandElement(item, retryCount) {
     retryCount = typeof retryCount !== 'undefined' ? retryCount : 3;
@@ -1388,7 +1388,10 @@ window.testdata = function () {
     function createBodyItem(parent, element, strings, index) {
         if (element[0] == MESSAGE_TYPE)
             return createMessage(element, strings);
-        return createKeyword(parent, element, strings, index);
+        var messages = util.filter(parent.children(), function (child) {
+            return child.type == 'message';
+        })
+        return createKeyword(parent, element, strings, index - messages.length);
     }
     function createKeyword(parent, element, strings, index) {
         var kw = model.Keyword({
@@ -1796,25 +1799,25 @@ function stopPropagation(event) {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[0,0,47045],[],[[4,0,0,[],[0,738,46284,5],[[0,6,7,0,0,0,0,0,[0,741,46279],[[0,8,9,0,10,11,0,0,[1,743,20002],[[8,20744,2,12]]],[0,13,14,0,15,16,0,0,[1,20746,17155],[[8,20749,2,17]]],[0,8,9,0,10,11,0,0,[0,37902,9104],[]],[0,18,14,0,19,0,0,0,[3,47007,1],[]],[0,20,14,0,21,22,0,0,[3,47009,3],[]],[0,23,14,0,24,25,0,0,[3,47013,1],[]],[0,8,9,0,10,26,0,0,[3,47014,1],[]],[0,20,14,0,21,27,0,0,[3,47016,0],[]],[0,23,14,0,24,25,0,0,[3,47017,0],[]]]]]],[28,0,0,[29],[0,47024,3,30],[]],[31,0,0,[29],[0,47029,3,30],[]],[32,0,0,[29],[0,47035,4,30],[]]],[],[4,0,4,0]];
+window.output["suite"] = [1,2,3,0,[],[0,0,167681],[],[[4,0,0,[],[1,2648,130571],[[0,5,6,0,0,0,0,0,[1,2648,130569],[[0,7,8,0,9,10,0,0,[1,2648,50014],[[8,52662,2,11]]],[0,12,13,0,14,15,0,0,[1,52663,16087],[[8,52665,2,16]]],[0,7,8,0,9,10,0,0,[1,68750,50001],[[8,118750,2,11]]],[0,17,13,0,18,0,0,0,[1,118751,666],[]],[0,19,13,0,20,21,0,0,[1,119417,930],[[8,119418,2,22]]],[0,23,13,0,24,25,0,0,[1,120347,251],[[8,120348,2,26]]],[0,7,8,0,9,27,0,0,[1,120598,5005],[[8,125603,2,28]]],[0,19,13,0,20,29,0,0,[1,125604,3055],[[8,125605,2,30]]],[0,23,13,0,24,25,0,0,[1,128659,4558],[[8,128659,2,26]]]]]]],[31,0,0,[],[1,133220,31580],[[0,32,6,0,0,0,0,0,[1,133222,31577],[[0,23,13,0,24,33,0,0,[1,133223,18659],[[8,133223,2,34]]],[0,23,13,0,24,35,0,0,[1,151882,10308],[[8,151883,2,36]]],[0,19,13,0,20,37,0,0,[1,162191,199],[[8,162192,2,38]]],[0,19,13,0,20,39,0,0,[1,162390,977],[[8,162391,2,40]]],[0,41,42,0,43,44,45,0,[1,163367,980],[[8,163368,2,46],[8,164346,2,47]]],[0,19,13,0,20,48,0,0,[1,164347,451],[[8,164347,2,49]]]]]]],[50,0,0,[],[1,164801,292],[[0,51,6,0,0,0,0,0,[1,164802,291],[[0,52,53,0,0,0,54,0,[1,164803,290],[[8,165093,2,55],[8,165093,2,56]]],[0,57,8,0,58,54,0,0,[1,165093,0],[[8,165093,2,59]]]]]]],[60,0,0,[],[0,165109,2565,61],[[0,62,6,0,0,0,0,0,[0,165112,2560],[[0,23,13,0,24,63,0,0,[1,165112,1429],[[8,165112,2,64]]],[0,65,13,0,66,67,0,0,[0,166542,1124],[[8,166581,2,68],[8,167016,2,69],[8,167665,5,61]]],[0,23,13,0,24,70,0,0,[3,167667,0],[]],[0,7,8,0,9,27,0,0,[3,167668,0],[]],[0,23,13,0,24,71,0,0,[3,167668,0],[]],[0,7,8,0,9,27,0,0,[3,167669,0],[]],[0,72,13,0,73,0,0,0,[3,167669,0],[]]]]]]],[],[4,3,1,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Yahoomail Automation","*/home/dharikhan/Desktop/Automation/Automation_Projects/yahoomail_automation.robot","*yahoomail_automation.robot","*Testcase1 for login","*Execution terminated by signal","*Login yahoo mail","*Keywords","*Sleep","*BuiltIn","*<p>Pauses the test executed for the given time.\x3c/p>","*20","*Slept 20 seconds","*Open Browser","*Selenium2Library","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*${url}, ${browser}","*Opening browser 'chrome' to base url '<a href=\"https://login.yahoo.com/\">https://login.yahoo.com/\x3c/a>'.","*Maximize Browser Window","*<p>Maximizes current browser window.\x3c/p>","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*//*[@id=\"login-username\"], ${username}","*Click Element","*<p>Click the element identified by <code>locator\x3c/code>.\x3c/p>","*//*[@id=\"login-signin\"]","*5","*//*[@id=\"login-passwd\"], ${password}","*Tc2 send mail","*robot:exit","*Test execution stopped due to a fatal error.","*TC1_Check Ip is available or not","*Tc3 attachfile"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Yahoomail Automation","*C:\\Users\\Vedh Dhari Madhu\\OneDrive\\Desktop\\auto\\Automation_Projects\\yahoomail_automation.robot","*yahoomail_automation.robot","*Testcase1 for login","*Login yahoo mail","*Keywords","*Sleep","*BuiltIn","*<p>Pauses the test executed for the given time.\x3c/p>","*50","*Slept 50 seconds","*Open Browser","*Selenium2Library","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*${url}, ${browser}","*Opening browser 'chrome' to base url '<a href=\"https://login.yahoo.com/\">https://login.yahoo.com/\x3c/a>'.","*Maximize Browser Window","*<p>Maximizes current browser window.\x3c/p>","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*//*[@id=\"login-username\"], ${username}","*Typing text 'priya12330@yahoo.com' into text field '//*[@id=\"login-username\"]'.","*Click Element","*<p>Click the element identified by <code>locator\x3c/code>.\x3c/p>","*//*[@id=\"login-signin\"]","*Clicking element '//*[@id=\"login-signin\"]'.","*5","*Slept 5 seconds","*//*[@id=\"login-passwd\"], ${password}","*Typing text 'indus@1988' into text field '//*[@id=\"login-passwd\"]'.","*Tc2 send mail","*Compose mail","*//*[@id=\"ymail\"]","*Clicking element '//*[@id=\"ymail\"]'.","*//tbody/tr[1]/td/a[contains(text(),\"Compose\")]","*Clicking element '//tbody/tr[1]/td/a[contains(text(),\"Compose\")]'.","*//*[@id=\"to\"], ${sender email address}","*Typing text 'dhari.nandakumar@gmail.com' into text field '//*[@id=\"to\"]'.","*//*[@id=\"subject\"], ${subject}","*Typing text 'Resume' into text field '//*[@id=\"subject\"]'.","*Get File","*OperatingSystem","*<p>Returns the contents of a specified file.\x3c/p>","*${email_body_file}","*${email body}","eNqtzLEKwkAMgOFXCV269fZSC+KBk+iiU6BEL/Wi7Z3kUtG3V9/B5Ydv+bdsJukKo0wMdUcQlcdV9WPr3KbFY2EteOIQwUdSgR2FuOA+sVd5Mnoud8sPpMUyrr+ZySSn4aD5xhcryDPJNJxzeDf2sqr//7Nz1NfNB016Syw=","*${email body} = HI Dharikhan,\n\n Please find the attached resume for your reference.\n\n Regards,\n Priya Harale\n ","*//*[@id=\"editorPlainText\"], ${email body}","*Typing text 'HI Dharikhan,\n\n Please find the attached resume for your reference.\n\n Regards,\n Priya Harale\n ' into text field '//*[@id=\"editorPlainText\"]'.","*TC1_Check Ip is available or not","*Get Ip name of Desktop","*Getip","*network","*${ip}","*127.0.0.1","*${ip} = None","*Log","*<p>Logs the given message with the given level.\x3c/p>","*None","*Tc3 attachfile","*Element with locator '//*[@id=\"upload_file_1\"]' not found.","*Attach file to yahoo mail","*//*[@title=\"Attach files to email\"]","*Clicking element '//*[@title=\"Attach files to email\"]'.","*Choose File","*<p>Inputs the <code>file_path\x3c/code> into the file input field <code>locator\x3c/code>.\x3c/p>","*//*[@id=\"upload_file_1\"], C:\\\\Users\\\\Vedh Dhari Madhu\\\\OneDrive\\\\Desktop\\\\auto\\\\Automation_Projects\\\\Resource_files/${file attach}","*Sending C:\\Users\\Vedh Dhari Madhu\\OneDrive\\Desktop\\auto\\Automation_Projects\\Resource_files\\harale_madhu.docx to browser.","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-6.png\"><img src=\"selenium-screenshot-6.png\" width=\"800px\">\x3c/a>","*//*[@id=\"uploadcomplete\"]/div[6]/div/button","*//tr[1]/td/div/div/button[1][contains(text(),\"Send\")]","*Close Browser","*<p>Closes the current browser.\x3c/p>"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:46","fail":4,"label":"All Tests","pass":0,"skip":0}],[{"combined":"NOT robot:exit","elapsed":"00:00:46","fail":1,"info":"combined","label":"NOT robot:exit","pass":0,"skip":0},{"elapsed":"00:00:00","fail":3,"label":"robot:exit","pass":0,"skip":0}],[{"elapsed":"00:00:47","fail":4,"id":"s1","label":"Yahoomail Automation","name":"Yahoomail Automation","pass":0,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:02:45","fail":1,"label":"All Tests","pass":3,"skip":0}],[],[{"elapsed":"00:02:48","fail":1,"id":"s1","label":"Yahoomail Automation","name":"Yahoomail Automation","pass":3,"skip":0}]];
 </script>
 <script type="text/javascript">
 window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1649571658768;
+window.output["baseMillis"] = 1649585971339;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 47106;
+window.output["generated"] = 171274;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
