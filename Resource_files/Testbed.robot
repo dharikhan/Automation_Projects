@@ -1,5 +1,5 @@
 *** Variable ***
-${browser}                    firefox
+${browser}                    chrome
 ${url}                        https://login.yahoo.com/         
 ${username}                   priya12330@yahoo.com
 ${password}                   indus@1988 
